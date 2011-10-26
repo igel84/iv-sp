@@ -1,0 +1,9 @@
+class UserAddSoltKey < ActiveRecord::Migration
+  def self.up
+    add_column :users, :solt_key, :string
+  end
+
+  def self.down
+    remove_column :users, :solt_key
+  end
+end

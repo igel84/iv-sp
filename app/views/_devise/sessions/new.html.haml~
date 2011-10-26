@@ -1,0 +1,21 @@
+%table.main
+	%tr
+		%td
+			%h2 Вход
+	%tr
+		%td
+			.body
+				= form_for(@user, {:action=>"create", :controller=>"devise/sessions"}) do |f|
+					%p= f.label :email
+					%p= f.text_field :email, :class=>"text ui-widget-content ui-corner-all"
+					%p= f.label :password, 'пароль'
+					%p= f.password_field :password, :class=>"text ui-widget-content ui-corner-all"
+					- if devise_mapping.rememberable?
+						%p
+							= f.check_box :remember_me
+							= f.label :remember_me, 'запомнить'
+					%p= f.submit "вход", :class=>'but'
+				= render :partial => "devise/shared/links"
+	%tr
+		%td
+			.bottom &nbsp;

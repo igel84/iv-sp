@@ -1,0 +1,13 @@
+%table.main
+	%tr
+		%td
+			%h2= "Редактирование '#{@page.name}'"
+	%tr
+		%td
+			.body
+				- form_for @page do |f|
+					= f.hidden_field(:id, :value => @page.id)	
+					= render :partial => 'form', :locals => {:f => f, :page => @page}
+	%tr
+		%td
+			.bottom &nbsp;

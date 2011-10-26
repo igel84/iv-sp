@@ -1,0 +1,16 @@
+%table.main
+	%tr
+		%td
+			%h2 Забыли пароль?
+	%tr
+		%td
+			.body
+				= form_for(resource_name, resource, :url => password_path(resource_name)) do |f|
+					= f.error_messages
+					%p= f.label :email
+					%p= f.text_field :email, :class=>"text ui-widget-content ui-corner-all", :style=>'width:348px;'
+					%p= f.submit "отправить инструкцию для восстановления", :class=>'but', :style=>'width:350px;'
+				= render :partial => "devise/shared/links"
+	%tr
+		%td
+			.bottom &nbsp;

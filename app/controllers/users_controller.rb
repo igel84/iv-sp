@@ -1,0 +1,78 @@
+class UsersController < ApplicationController
+  before_filter :check_administrator_role, :except => [:new, :create] #, :only => [:index, :destroy, :enable]
+
+  def index
+    @users = User.find(:all)
+  end
+  
+  def show
+    @user = User.find(params[:id])
+  end
+  
+  def show_by_username
+    @user = User.find_by_username(params[:username])
+    render :action => 'show'
+  end
+  
+  def new
+    @user = User.new
+  end
+  
+  def create
+    @user = User.new(params[:user])
+    @user.salt_key = User.random_string(50)
+    if @user.save
+      Sender.salt_account(@user).deliver      
+      flash[:notice] = "Аккаунт успешно создан, для активации пройдите, пожалуйста по ссылке, которая была отправлена вам на email"
+      redirect_to :root
+    else
+      render :action => 'new'
+    end
+  end
+  
+  def edit
+    @user = logged_in_user
+  end
+  
+  def update
+    @user = User.find(logged_in_user)
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "User updated"
+      redirect_to :action => 'show', :id => logged_in_user
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    if @user.update_attribute(:enabled, false)
+      flash[:notice] = "Пользователь заблокирован"
+    else
+      flash[:error] = "There was a problem disabling this user."
+    end
+    redirect_to :action => 'index'
+  end
+  
+  def enable
+    @user = User.find(params[:id])
+    if @user.update_attribute(:enabled, true)
+      flash[:notice] = "Пользователь активен"
+    else
+      flash[:error] = "There was a problem enabling this user."
+    end
+    redirect_to :action => 'index'
+  end
+  
+  def salt_account
+    @user = User.find(params[:id])
+    if params[:salt_key] && @user.salt_key == params[:salt_key]
+      @user.salted = true
+      @user.save
+      self.logged_in_user = @user
+      flash[:notice] = "Ваш аккаунт успешно активирован!"
+    end    
+    redirect_to :root
+  end
+
+end

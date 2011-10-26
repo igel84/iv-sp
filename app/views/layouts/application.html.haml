@@ -1,0 +1,68 @@
+!!!
+%html
+	%head
+		%title совместные покупки в иваново
+		%meta{:name=>"keywords", :content=>"совместные покупки в иваново"}
+		%meta{:name=>"description", :content=>"совместные покупки в иваново"}		
+		= stylesheet_link_tag 'layout.css', 'ui-lightness/jquery-ui-1.8.13.custom.css'
+		= javascript_include_tag  'jquery.js', 'jquery_ujs.js', 'jquery-ui-1.8.13.custom.min', 'application.js'
+		= csrf_meta_tag
+	%body
+		.wrap
+			.header
+				.href-head					
+					= link_to "www.iv-sp.ru", :root, :style=>"margin-top:5px;margin-bottom:5px;display:block;"
+					= image_tag "banner.png", :style=>"width:100px; height:100px;display:block;margin-left:50px;"
+				= image_tag "logo.png"
+				.text-head
+					%h1 Совместные покупки в Иваново - 
+					%h1 самый выгодный шоппинг!
+				.top-menu
+					= link_to "Главная", :root
+					- if is_logged_in?
+						= logged_in_user.username
+						= link_to '[выход]', {:controller => 'account', :action => 'logout'},
+:method => :post
+					- else
+						= link_to 'Регистрация', {:controller => 'users', :action => 'new'}, :style=>"margin:0;"
+						или
+						= link_to 'Вход', login_path				
+			.sidebar-left
+				.button	
+					- if is_logged_in? && logged_in_user.has_role?('Administrator')
+						= link_to 'новый раздел', new_page_path, :class => "ui-corner-all", :id => "add-main-page"
+					- Page.find(1) do |page|
+						%h2{ :style => "margin-bottom:10px;" }
+							= link_to "Главная страница", :root
+							- if is_logged_in? && logged_in_user.has_role?('Administrator')
+								= link_to edit_page_path(:id => page.id), :class => "ui-corner-all add-sub-page" do
+									= image_tag "edit.png"
+					- Page.roots.each do |page|
+						- if page.id != 1
+							%h2
+								- if is_logged_in? && logged_in_user.has_role?('Administrator')
+									= truncate(page.name, :length=>28, :ommision=>'...')
+									= link_to page, :method => :delete, :confirm => "вы уверены, что хотите удалить раздел?", :class => "ui-corner-all add-sub-page" do
+										= image_tag "del.png"
+									= link_to new_page_path(:id => page.id), :class => "ui-corner-all add-sub-page" do
+										= image_tag "add.png"		
+								- else
+									= page.name															
+							.menu
+								%ul
+									- page.children.each do |child|
+										%li
+											= link_to child.name, page_path (:id => child.id)
+											- if is_logged_in? && logged_in_user.has_role?('Administrator')
+												= link_to edit_page_path ( :id => child.id ) do
+													= image_tag "edit.png", :height => '13px'
+												= link_to child, :method => :delete, :confirm => "вы уверены, что хотите удалить раздел?", :class => "ui-corner-all" do
+													= image_tag "del.png"
+							.bottom
+			-# .sidebar-right Правая колонка
+			.content
+				= yield
+			.clear{:style=>'clear:both;'}
+			.empty
+		.footer
+			%span{:style=>"color:#6F6F6F;display:block;margin-top:40px;margin-left:40px;"} &copy; 2011, Совместные покупки в Иваново 

@@ -1,0 +1,16 @@
+%table.main
+	%tr
+		%td
+			%h2 Получение инструкции по восстановлению пароля
+	%tr
+		%td
+			.body
+				= form_for(resource_name, resource, :url => unlock_path(resource_name)) do |f|
+					= f.error_messages
+					%p= f.label :email
+					%p= f.text_field :email
+					%p= f.submit "отправить пароль для восстановления", :class=>'but', :style=>'width:150px;'
+				= render :partial => "devise/shared/links"
+	%tr
+		%td
+			.bottom &nbsp;

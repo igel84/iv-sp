@@ -1,0 +1,339 @@
+/* line 7, ../../app/stylesheets/layout.scss */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font: normal 12px Tahoma,sans-serif;
+  color: #3c3c3c;
+}
+
+/* line 14, ../../app/stylesheets/layout.scss */
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 0 -60px 0;
+}
+
+/* line 21, ../../app/stylesheets/layout.scss */
+.empty, .footer {
+  height: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 32, ../../app/stylesheets/layout.scss */
+.header, .footer, .sidebar-left, .sidebar-right, .content {
+  background: #fff;
+  padding: 0;
+}
+
+/* line 36, ../../app/stylesheets/layout.scss */
+.header {
+  background: url("../images/head-bg.png") repeat-x;
+  height: 177px;
+  padding: 0;
+}
+/* line 40, ../../app/stylesheets/layout.scss */
+.header img {
+  width: 250px;
+  height: 167px;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+/* line 52, ../../app/stylesheets/layout.scss */
+.header .text-head {
+  margin-left: 260px;
+  margin-right: 210px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #015777;
+  text-shadow: 1px 1px 0 #555555;
+  font: bold 14px Calibri,sans-serif;
+  font-style: italic;
+  padding-top: 15px;
+}
+/* line 65, ../../app/stylesheets/layout.scss */
+.header h1 {
+  width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 15px;
+}
+/* line 79, ../../app/stylesheets/layout.scss */
+.header h1:nth-child(2) {
+  width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 80px;
+  padding-right: 0;
+  padding-top: 15px;
+}
+
+/* line 94, ../../app/stylesheets/layout.scss */
+.href-head {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  width: 200px;
+  height: 130px;
+}
+/* line 102, ../../app/stylesheets/layout.scss */
+.href-head a {
+  color: #015777;
+  text-decoration: none;
+}
+/* line 105, ../../app/stylesheets/layout.scss */
+.href-head a:hover {
+  color: #02a1dc;
+}
+
+/* line 108, ../../app/stylesheets/layout.scss */
+.top-menu {
+  position: absolute;
+  float: right;
+  top: 137px;
+  right: 0;
+}
+/* line 114, ../../app/stylesheets/layout.scss */
+.top-menu a {
+  font: bold 12px Tahoma,sans-serif;
+  text-decoration: none;
+  color: #cc3399;
+  height: 30px;
+  padding: 3px;
+  margin-right: 10px;
+}
+/* line 121, ../../app/stylesheets/layout.scss */
+.top-menu a:hover {
+  border-bottom: solid 1px #8f246b;
+  color: #8f246b;
+}
+
+/* line 127, ../../app/stylesheets/layout.scss */
+.sidebar-left, .sidebar-right {
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* line 133, ../../app/stylesheets/layout.scss */
+.sidebar-left {
+  float: left;
+}
+
+/* line 134, ../../app/stylesheets/layout.scss */
+.sidebar-right {
+  float: right;
+}
+
+/* line 135, ../../app/stylesheets/layout.scss */
+.content {
+  margin: 0 10px 0 250px;
+  background: #fafafa;
+}
+
+/* line 140, ../../app/stylesheets/layout.scss */
+h2 {
+  background: url("../images/head-menu-bg.png") repeat-x;
+  font: normal 11px Tahoma,sans-serif;
+  text-transform: uppercase;
+  line-height: 20px;
+  color: #3c3c3c;
+  border: solid 1px #cccccc;
+  margin: 0;
+}
+
+/* line 149, ../../app/stylesheets/layout.scss */
+.button {
+  text-align: center;
+}
+/* line 151, ../../app/stylesheets/layout.scss */
+.button a.add-sub-page {
+  width: 16px;
+  height: 16px;
+  margin: 1px;
+  float: right;
+  line-height: 13px;
+  padding: 0;
+  border: solid 1px #888888;
+  color: #6f6f6f;
+  background: #d5d5d5;
+}
+/* line 161, ../../app/stylesheets/layout.scss */
+.button a.add-sub-page:hover {
+  color: #565656;
+  background: #efefef;
+}
+/* line 166, ../../app/stylesheets/layout.scss */
+.button a {
+  font: normal 13px Tahoma,sans-serif;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 172, ../../app/stylesheets/layout.scss */
+.button a#add-main-page {
+  padding: 0;
+  width: 230px;
+  margin-top: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: block;
+  text-transform: uppercase;
+  line-height: 20px;
+  height: 20px;
+  text-align: center;
+  color: #6f6f6f;
+  background: #d5d5d5;
+  border: solid 1px #888888;
+}
+/* line 188, ../../app/stylesheets/layout.scss */
+.button a#add-main-page:hover {
+  color: #565656;
+  background: #efefef;
+}
+/* line 194, ../../app/stylesheets/layout.scss */
+.button h2 {
+  height: 20px;
+  width: 230px;
+  margin-top: 0;
+  margin-left: 10px;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+/* line 203, ../../app/stylesheets/layout.scss */
+.button h2 a {
+  color: #3c3c3c;
+  font: normal 11px Tahoma,sans-serif;
+}
+/* line 208, ../../app/stylesheets/layout.scss */
+.button .menu {
+  background: #f2f2f2;
+  width: 230px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 0;
+  padding-left: 0;
+  border-right: solid 1px #cccccc;
+  border-left: solid 1px #cccccc;
+  border-top: none;
+  border-bottom: none;
+  text-align: left;
+  color: #015777;
+  font: normal 13px Tahoma,sans-serif;
+}
+/* line 232, ../../app/stylesheets/layout.scss */
+.button .menu ul {
+  margin: 0 0 0 10px;
+  padding: 0;
+  line-height: 20px;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+/* line 238, ../../app/stylesheets/layout.scss */
+.button .menu ul a {
+  color: #015777;
+}
+/* line 239, ../../app/stylesheets/layout.scss */
+.button .menu ul li:hover {
+  margin-left: 10px;
+}
+/* line 242, ../../app/stylesheets/layout.scss */
+.button .bottom {
+  background: url("../images/bottom-menu-bg.png") bottom left repeat-x;
+  width: 230px;
+  height: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  border: solid 1px #cccccc;
+}
+
+/* line 256, ../../app/stylesheets/layout.scss */
+label, input {
+  display: inline;
+}
+
+/* line 257, ../../app/stylesheets/layout.scss */
+.inputs {
+  color: #015777;
+  font: normal 12px Tahoma,sans-serif;
+  margin: 0;
+  padding: 5px;
+}
+/* line 262, ../../app/stylesheets/layout.scss */
+.inputs label {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+/* line 263, ../../app/stylesheets/layout.scss */
+.inputs input[type="text"] {
+  width: 100%;
+  margin: 0;
+}
+/* line 267, ../../app/stylesheets/layout.scss */
+.inputs textarea {
+  width: 100%;
+  height: 300px;
+  margin-right: 15px;
+}
+
+/* line 273, ../../app/stylesheets/layout.scss */
+table, tbody, tr, td {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  border-collapse: collapse;
+}
+
+/* line 276, ../../app/stylesheets/layout.scss */
+table.main {
+  width: 100%;
+}
+/* line 278, ../../app/stylesheets/layout.scss */
+table.main h2 {
+  text-align: center;
+}
+/* line 279, ../../app/stylesheets/layout.scss */
+table.main .body {
+  background: #f2f2f2;
+  padding: 10px;
+  border-left: solid 1px #cccccc;
+  border-right: solid 1px #cccccc;
+  border-top: none;
+  border-bottom: none;
+}
+/* line 288, ../../app/stylesheets/layout.scss */
+table.main .body .but {
+  height: 24px;
+  padding: 0;
+  width: 100px;
+}
+/* line 294, ../../app/stylesheets/layout.scss */
+table.main .bottom {
+  background: url("../images/bottom-menu-bg.png") bottom left repeat-x;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #cccccc;
+}

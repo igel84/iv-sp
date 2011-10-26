@@ -1,0 +1,20 @@
+%table.main
+	%tr
+		%td
+			%h2 Регистрация
+	%tr
+		%td
+			.body
+				= form_for(resource_name, resource, :url => registration_path(resource_name)) do |f|
+					= f.error_messages
+					%p= f.label :email
+					%p= f.text_field :email, :class=>"text ui-widget-content ui-corner-all"
+					%p= f.label :password, 'пароль'
+					%p= f.password_field :password, :class=>"text ui-widget-content ui-corner-all"
+					%p= f.label :password_confirmation, 'подтверждение'
+					%p= f.password_field :password_confirmation, :class=>"text ui-widget-content ui-corner-all"
+					%p= f.submit "отправить", :class=>'but'
+				= render :partial => "devise/shared/links"
+	%tr
+		%td
+			.bottom &nbsp;

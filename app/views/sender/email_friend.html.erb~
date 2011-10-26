@@ -1,0 +1,15 @@
+<html>
+<body>
+<h3>
+Для подтверждения своего аккаунта перейдите, пожалуйста, по следующей ссылке:
+</h3>
+<%= @message %>
+<%= link_to 'root', :root %>
+<p>
+<strong>
+<%= @message %>
+&nbsp;
+</strong>
+</p>
+</body>
+</html>

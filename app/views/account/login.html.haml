@@ -1,0 +1,23 @@
+%table.main
+	%tr
+		%td
+			%h2 Вход
+	%tr
+		%td
+			.body
+				%p#notice{:style=>'text-align:center;'}
+					= notice
+				- form_for :user, :url => {:controller => 'account', :action => 'authenticate'} do |f|
+					%p{:style=>'text-align:center;'}
+						Пользователь:
+						%br/
+						= f.text_field :username, :size => 30, :class=>"text ui-widget-content ui-corner-all"
+					%p{:style=>'text-align:center;'}
+						Пароль:
+						%br/
+						= f.password_field :password, :size => 30, :class=>"text ui-widget-content ui-corner-all"
+					%p{:style=>'text-align:center;'}
+						= submit_tag 'войти', :class=>'but'
+	%tr
+		%td
+			.bottom &nbsp;

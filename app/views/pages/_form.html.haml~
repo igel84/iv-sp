@@ -1,0 +1,17 @@
+= javascript_include_tag :ckeditor
+- if @page.parent_id != nil
+	.inputs
+		= f.label :admin_access, 'Организаторы могут добавлять темы в раздел'
+		= f.check_box :admin_access, :class=>"text ui-widget-content ui-corner-all"
+	.inputs
+		= f.label :user_access, 'Пользователи могут добавлять темы в раздел'
+		= f.check_box :user_access, :class=>"text ui-widget-content ui-corner-all"
+.inputs{:style=>"margin-top:10px;"}
+	= f.label :name, 'Название', :style => "display:block;"
+	= f.text_field :name, :class=>"text ui-widget-content ui-corner-all"
+- if @page.parent_id != nil || @page.id == 1
+	.inputs
+		= f.label :body, 'Содержание', :style => "display:block;"
+		= f.cktext_area :body, :toolbar => 'Easy', :width => 800, :height => 400 
+		=# f.text_area(:body, :class=>"text ui-widget-content ui-corner-all")
+= f.submit 'сохранить', :class => "but", :style => "margin-left:5px;"

@@ -1,0 +1,16 @@
+%table.main
+	%tr
+		%td
+			%h2 Resend confirmation instructions
+	%tr
+		%td
+			.body
+				= form_for(resource_name, resource, :url => confirmation_path(resource_name)) do |f|
+					= f.error_messages
+					%p= f.label :email
+					%p= f.text_field :email, :class=>"text ui-widget-content ui-corner-all", :style=>'width:348px;'
+					%p= f.submit "отправить подтверждение", :class=>'but', :style=>'width:350px;'
+				= render :partial => "devise/shared/links"
+	%tr
+		%td
+			.bottom &nbsp;

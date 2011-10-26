@@ -1,0 +1,48 @@
+%table.main
+	%tr
+		%td
+			%h2 Регистрация
+	%tr
+		%td
+			.body
+				= error_messages_for :user
+				- form_for :user, :url => users_path do |f|
+					%p
+						Имя пользователя:
+						%br/
+						= f.text_field :username, :size => 60, :class=>"text ui-widget-content ui-corner-all"
+					%p
+						Email:
+						%br/
+						= f.text_field :email, :size => 60, :class=>"text ui-widget-content ui-corner-all"
+					%p
+						Пол:
+						%br/
+						%span{:style=>"line-height:5px;"} женский
+						= radio_button("user", "sex", "false")
+						мужской
+						= radio_button("user", "sex", "true")
+					%p
+						Телефон:
+						%br/
+						= f.text_field :phone, :size => 60, :class=>"text ui-widget-content ui-corner-all"
+					%p
+						Адрес:
+						%br/
+						= f.text_field :address, :size => 60, :class=>"text ui-widget-content ui-corner-all"
+					%p
+						Пароль:
+						%br/
+						= f.password_field :password, :size => 60, :class=>"text ui-widget-content ui-corner-all"
+					%p
+						Подтверждение пароля:
+						%br/
+						= f.password_field :password_confirmation, :size => 60, :class=>"text ui-widget-content ui-corner-all"
+					%p
+						Краткая информация о себе:
+						%br/
+						= f.text_area :profile, :rows => 6, :cols => 60, :class=>"text ui-widget-content ui-corner-all"
+					= submit_tag 'регистрация', :class=>'but'
+	%tr
+		%td
+			.bottom &nbsp;

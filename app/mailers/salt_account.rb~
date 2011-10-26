@@ -1,0 +1,11 @@
+class SaltAccount < ActionMailer::Base
+  default :from => "admin@iv-sp.ru"
+
+  def email_friend(message, receiver_email)
+		@name = 'подтверждение аккаунта'
+		@message = message
+		@sender_name = 'Совместные покупки в Иваново'
+		mail :to => receiver_email, :subject => @name #, :body => @message
+		render 'salt_account/email_friend'
+  end
+end
