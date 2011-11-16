@@ -1,0 +1,20 @@
+%table.main
+	%tr
+		%td
+			%h2
+				Полномочия для пользователя: 
+				= @user.username
+	%tr
+		%td
+			.body
+				=link_to 'к пользователям', users_paht
+				%h3 Действующие:
+				%ul
+					= render :partial => 'role', :collection => @user.roles
+				%h3 Эти можно добавить:
+				%ul
+					= render :partial => 'role', :collection => (@all_roles - @user.roles)
+	%tr
+		%td
+			.bottom &nbsp;
+

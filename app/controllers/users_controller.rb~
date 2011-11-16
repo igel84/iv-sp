@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_administrator_role, :exept => [:new, :create] #, :only => [:index, :destroy, :enable]
+  before_filter :check_administrator_role, :except => [:new, :create, :salt_account, :index] #, :only => [:index, :destroy, :enable]
 
   def index
     @users = User.find(:all)

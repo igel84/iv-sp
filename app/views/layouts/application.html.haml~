@@ -20,6 +20,8 @@
 				.top-menu
 					= link_to "Главная", :root
 					- if is_logged_in?
+						= link_to "Пользователи", users_path
+					- if is_logged_in?
 						= logged_in_user.username
 						= link_to '[выход]', {:controller => 'account', :action => 'logout'},
 :method => :post
@@ -41,7 +43,7 @@
 						- if page.id != 1
 							%h2
 								- if is_logged_in? && logged_in_user.has_role?('Administrator')
-									= truncate(page.name, :length=>30, :ommision=>'...')
+									= truncate(page.name, :length=>28, :ommision=>'...')
 									= link_to page, :method => :delete, :confirm => "вы уверены, что хотите удалить раздел?", :class => "ui-corner-all add-sub-page" do
 										= image_tag "del.png"
 									= link_to new_page_path(:id => page.id), :class => "ui-corner-all add-sub-page" do

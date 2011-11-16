@@ -19,7 +19,8 @@
 					%h1 самый выгодный шоппинг!
 				.top-menu
 					= link_to "Главная", :root
-					- if is_logged_in?
+					- if is_logged_in?						
+						= link_to "Пользователи", users_path
 						= logged_in_user.username
 						= link_to '[выход]', {:controller => 'account', :action => 'logout'},
 :method => :post

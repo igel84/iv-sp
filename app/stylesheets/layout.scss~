@@ -300,3 +300,7 @@ table.main {
 		border:solid 1px $text-bg;
 	}
 }
+table#users {
+	th { border-bottom: solid 1px $text-bg; padding:2px; }
+	td { text-align: center; border-bottom: solid 1px $text-bg; padding:1px;}
+}

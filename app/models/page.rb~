@@ -6,8 +6,7 @@ class Page < ActiveRecord::Base
   end
   
   def children
-    Page.where("parent_id = ?", self.id)
-    #Page.where(:parent_id => self.id).order('position')
+    Page.where("parent_id = ?", self.id).order('position')
   end
   
 end

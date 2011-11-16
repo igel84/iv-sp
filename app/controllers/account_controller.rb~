@@ -7,8 +7,11 @@ class AccountController < ApplicationController
   def authenticate
     self.logged_in_user = User.authenticate(params[:user][:username], params[:user][:password])
     if is_logged_in?
+      user = User.find(logged_in_user.id)
+      user.last_login_at = DateTime.now
+      user.save
       redirect_to :root
-   else
+    else
       flash[:notice] = "Имя пользователя или пароль указаны неверно"
       redirect_to :action => 'login'
     end

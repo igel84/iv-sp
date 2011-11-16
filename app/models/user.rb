@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
   
   def self.authenticate(username, password)
-    find_by_username_and_hashed_password_and_enabled(username, User.encrypt(password), true)
+    find_by_username_and_hashed_password_and_enabled_and_salted(username, User.encrypt(password), true, true)
   end
 
   def has_role?(rolename)

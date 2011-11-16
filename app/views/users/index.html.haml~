@@ -1,0 +1,18 @@
+%table.main
+	%tr
+		%td
+			%h2 Пользователи
+	%tr
+		%td
+			.body
+				%table{ :id=>'users', :width=>'100%'}
+					%tr
+						%th Имя пользователя
+						%th Email
+						%th Разрешен
+						%th Активирован
+						%th Полномочия
+					= render :partial => 'user', :collection => @users
+	%tr
+		%td
+			.bottom &nbsp;

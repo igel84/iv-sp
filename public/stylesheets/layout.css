@@ -337,3 +337,15 @@ table.main .bottom {
   padding: 0;
   border: solid 1px #cccccc;
 }
+
+/* line 304, ../../app/stylesheets/layout.scss */
+table#users th {
+  border-bottom: solid 1px #cccccc;
+  padding: 2px;
+}
+/* line 305, ../../app/stylesheets/layout.scss */
+table#users td {
+  text-align: center;
+  border-bottom: solid 1px #cccccc;
+  padding: 2px;
+}

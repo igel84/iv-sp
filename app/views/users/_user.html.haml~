@@ -1,0 +1,27 @@
+%tr{:class=>"#{cycle('odd', 'even')}"}
+	%td
+		= user.username
+	- if logged_in_user.has_role?('Administrator')
+		%td
+			= user.email
+	%td
+		= user.enabled ? 'да' : 'нет'
+		- if logged_in_user.has_role?('Administrator')
+			-  if user.enabled
+				[
+				= link_to('нет', user_url(user.id), :method => :delete)
+				]
+			- else
+				[
+				= link_to('да', enable_user_url(user.id), :method => :put)
+				]
+	%td
+		= user.salted ? 'да' : 'нет'
+	%td
+		%ul{:style=>'padding:0;margin:0;list-style-type:none;'}
+			- user.roles.each do |role|
+				%li= role.alias
+		- if logged_in_user.has_role?('Administrator')
+			[
+			= link_to 'изменить', user_roles_path(user)
+			]
